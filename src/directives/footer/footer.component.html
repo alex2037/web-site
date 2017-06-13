@@ -1,0 +1,50 @@
+<div class="col-sm-12 row back-side" style="height: 55px">
+    <div class="col-sm-12 row"></div>
+    <div class="col-sm-12 row"></div>
+    <div class="col-sm-12 row navigation">
+        <div style="margin-right: 0">
+            <div class="list-group-item footer-button"
+                 ng-if="$ctrl.isLog"
+                 ng-click="$ctrl.logOut()">
+                <label ng-bind="$ctrl.message.logOut"></label>
+            </div>
+            <div class="list-group-item footer-button"
+                 ng-if="!$ctrl.isLog"
+                 ng-click="$ctrl.isAuth = true;">
+                <label ng-bind="$ctrl.message.logIn"></label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 row navigation">
+        <div class="auth" ng-if="$ctrl.isAuth">
+            <div class="col-sm-12 row navigation" style="padding: 0;">
+                <div class="form-group row">
+                    <label class="col-1 col-form-label"
+                           ng-bind="$ctrl.message.login"></label>
+                    <div class="col-11">
+                        <input class="form-control" type="text" ng-model="$ctrl.user.login">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 row navigation" style="padding: 0">
+                <div class="form-group row">
+                    <label class="col-1 col-form-label"
+                           ng-bind="$ctrl.message.password"></label>
+                    <div class="col-11">
+                        <input class="form-control" type="password" ng-model="$ctrl.user.password">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 row">
+                <div class="list-group-item auth-button" style="margin-right: 20px"
+                     ng-click="$ctrl.logIn()">
+                    <label>Open</label>
+                </div>
+                <div class="list-group-item auth-button"
+                     ng-click="$ctrl.isAuth = false;">
+                    <label>Close</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+export default angular.module('web-service', ['ngCookies', 'ngAnimate', 'ui.bootstrap']);

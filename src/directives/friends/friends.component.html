@@ -1,0 +1,37 @@
+<div class="col-sm-12 dashboard-friends">
+    <div class="col-sm-12 row">
+        <input class="col-sm-11 form-control" type="text" ng-model="$ctrl.searchName">
+        <img class="search-people" src="./../../images/search.png" ng-click="$ctrl.search()">
+    </div>
+    <div class="card" style="margin-top: 40px" ng-repeat="people in $ctrl.peoples">
+        <div class="row">
+            <div class="people-card__foto">
+                <svg width="100%" height="100%">
+                    <polygon points="112,85 100,128 59,98" style="fill: #FADFAA"/>
+                    <polygon points="112,85 100,128 132,111" style="fill: #EABA8C"/>
+                    <polygon points="59,98 100,128 60,140" style="fill: #FAD398"/>
+                    <polygon points="59,98 60,140 29,142" style="fill: #DFA387"/>
+                    <polygon points="59,98 29,142 6,133" style="fill: #F9D8AD"/>
+                    <polygon points="112,85 132,111 163,101" style="fill: #DBB08E"/>
+                    <polygon points="132,111 100,128 122,132" style="fill: #CE8670"/>
+                </svg>
+            </div>
+            <div class="card-block">
+                <label ng-bind="people.name + ' ' + people.suname"></label>
+                <div class="navigation" style="padding-top: 120px">
+                    <img class="people-card__active" src="./../../images/added.png" ng-if="!people.isFriend" title="{{$ctrl.messages.added}}" ng-click="$ctrl.sendRequest(people.id)">
+                    <img class="people-card__active" src="./../../images/trash.png" ng-if="people.isFriend" title="{{$ctrl.messages.remove}}" ng-click="$ctrl.sentRefusal(people.id)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12" ng-if="$ctrl.visibleContinue" style="margin-top: 40px">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="list-group-item col-sm-8 registration-button d-flex justify-content-center"
+                 ng-click="$ctrl.getPeoples()">
+                <label ng-bind="::$ctrl.messages.continue"></label>
+            </div>
+        </div>
+    </div>
+</div>

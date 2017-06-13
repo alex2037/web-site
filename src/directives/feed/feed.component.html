@@ -1,0 +1,38 @@
+<div class="col-sm-12">
+    <div class="col-sm-12 form-group">
+        <textarea class="form-control" style="height: 120px; max-height: 120px; overflow: auto" ng-model="$ctrl.post">
+        </textarea>
+        <div class="col-sm-12 navigation" style="padding: 10px 0 0 0;">
+            <img class="people-card__active navigation " style="margin: 0" src="./../../images/sent.png" title="{{$ctrl.messages.sentPost}}"
+                 ng-click="$ctrl.sentPost()">
+        </div>
+    </div>
+
+    <div class="col-sm-12 dashboard-friends">
+        <div class="card" style="margin-top: 40px" ng-repeat="post in $ctrl.posts">
+            <div class="card-block">
+                <p class="card-text" ng-bind="post.text"></p>
+            </div>
+            <div class="row navigation">
+                <img ng-if="post.isLike" class="people-card__active" src="./../../images/like-active.png"
+                     title="{{$ctrl.messages.like}}" ng-click="$ctrl.sendLike(post)">
+                <img ng-if="!post.isLike" class="people-card__active" src="./../../images/like.png"
+                     title="{{$ctrl.messages.like}}" ng-click="$ctrl.sendLike(post)">
+                <img ng-if="post.isDislike" class="people-card__active" src="./../../images/dislike-active.png"
+                     title="{{$ctrl.messages.dislike}}" ng-click="$ctrl.sentDislike(post)">
+                <img ng-if="!post.isDislike" class="people-card__active" src="./../../images/dislike.png"
+                     title="{{$ctrl.messages.dislike}}" ng-click="$ctrl.sentDislike(post)">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-if="$ctrl.visibleContinue" style="margin-top: 40px">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="list-group-item col-sm-8 registration-button d-flex justify-content-center"
+                 ng-click="$ctrl.getPost()">
+                <label ng-bind="::$ctrl.messages.continue"></label>
+            </div>
+        </div>
+    </div>
+</div>
